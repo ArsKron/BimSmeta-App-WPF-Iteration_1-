@@ -1,0 +1,443 @@
+﻿<Window x:Class="BimSmeta_App_WPF__Iteration_1_.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BimSmeta_App_WPF__Iteration_1_"
+        mc:Ignorable="d"
+        Title="NewProject1 - BIM-Smeta AutoBuilder" 
+        Background="White" 
+        BorderBrush="Black" 
+        Height="450" 
+        Width="800" 
+        WindowStartupLocation="CenterScreen" 
+        WindowState="Maximized" 
+        AllowDrop="True" 
+        WindowStyle="SingleBorderWindow" 
+        BorderThickness="0,1,0,0" 
+        Icon="/kisspng-logo-computer-icons-clip-art-arrow-symbol-single-turn-svg-png-icon-free-download-4-1458-5b76.ico"
+        Closed="Window_Closed"
+        >
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width = "2*"/>
+            <ColumnDefinition Width= "7*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Border BorderBrush="Black" BorderThickness="0,0,1,0">
+                <StackPanel Orientation="Vertical">
+
+                    <Button x:Name="Button_Project" 
+                            Content="Проект" 
+                            BorderThickness="1,1,0,0" 
+                            FontSize="24" 
+                            FontFamily="Times New Roman" 
+                            Height="45">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/1.png"/>
+                        </Button.Background>
+                    </Button>
+
+                    <Button x:Name="Button_LoadProject" 
+                            Content="Загрузить проект" 
+                            BorderThickness="1,1,0,0" 
+                            FontSize="24" 
+                            FontFamily="Times New Roman" 
+                            Height="45" 
+                            Click="Button_LoadProject_Click"
+                            >
+                        <Button.Background>
+                            <ImageBrush/>
+                        </Button.Background>
+                    </Button>
+
+                    <Button x:Name="Button_Constructor" 
+                            Background="White" 
+                            Content="Конструктор сметы"
+                            BorderThickness="1,1,0,0" 
+                            FontSize="24" 
+                            FontFamily="Times New Roman" 
+                            Height="45"
+                            Click="Button_Constructor_Click"
+                            />
+
+                    <Button x:Name="Button_Preview" 
+                            Background="White" 
+                            Content="Предпросмотр сметы" 
+                            BorderThickness="1,1,0,0" 
+                            FontSize="24" 
+                            FontFamily="Times New Roman" 
+                            Height="45"
+                            Click="Button_Preview_Click"
+                            />
+
+                    <Button x:Name="Button_Reference" 
+                            Background="White" 
+                            Content="Справка" 
+                            BorderThickness="1,1,0,1" 
+                            FontSize="24" 
+                            FontFamily="Times New Roman" 
+                            Height="45"
+                            Click="Button_Reference_Click"
+                            />
+
+                </StackPanel>
+            </Border>
+
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="12*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <TextBlock Text="NewProject1" 
+                           FontSize="24" 
+                           FontFamily="Times New Roman" 
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Center"/>
+                <!--<Label Content="NewProject1" FontSize="24" FontFamily="Times New Roman"/>-->
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="3*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="2*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <TextBlock Text="Выберите файл IFC" 
+                                       FontSize="24" 
+                                       FontFamily="Times New Roman" 
+                                       Margin="5,0,0,1"/>
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="7*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <TextBox Text="Путь к файлу"
+                                         FontSize="24"
+                                         FontFamily="Times New Roman" 
+                                         HorizontalAlignment="Stretch" 
+                                         VerticalAlignment="Stretch" Margin="5,1,0,0" 
+                                         FontWeight="Normal" 
+                                         VerticalContentAlignment="Center" 
+                                         Padding="2,0,0,0"
+                                         BorderThickness="1"
+                                         BorderBrush="Black" 
+                                         SelectionBrush="Black" 
+                                         Background="White"
+                                         IsReadOnly="True"
+                                    />
+                            </Grid>
+
+                            <Grid Grid.Column="1">
+                                <Button
+                                    Name="ReviewPathToBimButton"
+                                    Content="Обзор"
+                                    FontSize="24"
+                                    FontFamily="Times New Roman" Margin="20,1,15,0"
+                                    Click="ReviewPathToBimButton_Click"
+                                    />
+                            </Grid>
+
+                            <Grid Grid.Column="2">
+                                <Button
+                                    Content="Стандарт"
+                                    FontSize="24"
+                                    FontFamily="Times New Roman" Margin="20,1,15,0"
+                                    />
+                            </Grid>
+
+                        </Grid>
+
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="2*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <TextBlock Text="Сметно-нормативную базу" 
+                                       FontSize="24" 
+                                       FontFamily="Times New Roman" 
+                                       Margin="5,0,0,1"/>
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="7*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <TextBox Text="Путь к файлу"
+                                         FontSize="24"
+                                         FontFamily="Times New Roman" 
+                                         HorizontalAlignment="Stretch" 
+                                         VerticalAlignment="Stretch" Margin="5,1,0,0" 
+                                         FontWeight="Normal" 
+                                         VerticalContentAlignment="Center" 
+                                         Padding="2,0,0,0"
+                                         BorderThickness="1"
+                                         BorderBrush="Black" 
+                                         SelectionBrush="Black" 
+                                         Background="White"
+                                         IsReadOnly="True"
+                                    />
+                            </Grid>
+
+                            <Grid Grid.Column="1">
+                                <Button
+                                    Name="ReviewPathToFER_Button"
+                                    Content="Обзор"
+                                    FontSize="24"
+                                    FontFamily="Times New Roman" 
+                                    Margin="20,1,15,0"
+                                    Click="ReviewPathToFER_Button_Click"
+                                    />
+                            </Grid>
+
+                            <Grid Grid.Column="2">
+                                <Button
+                                    Content="Стандарт"
+                                    FontSize="24"
+                                    FontFamily="Times New Roman" Margin="20,1,15,0"
+                                    />
+                            </Grid>
+
+                        </Grid>
+
+                    </Grid>
+
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="4*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="6*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <ProgressBar
+                                Value="62" Margin="5,5,0,5"/>
+                        </Grid>
+
+                        <Grid Grid.Column="1">
+                            <TextBlock
+                                Text="62%"
+                                FontSize="24"
+                                FontFamily="Times New Roman" 
+                                HorizontalAlignment="Stretch" 
+                                Margin="35,5,0,5"
+                                />
+                        </Grid>
+
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="5*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <Button
+                                    Content="Создать"
+                                    FontSize="24"
+                                    FontFamily="Times New Roman" Margin="0,10,0,10"/>
+                            </Grid>
+
+                            <Grid Grid.Column="2">
+                                <Button
+                                    Content="Отмена"
+                                    FontSize="24"
+                                    FontFamily="Times New Roman" Margin="0,10,0,10"/>
+                            </Grid>
+
+                            <Grid Grid.Column="4">
+                                <Button
+                                    Content="?"
+                                    FontSize="24"
+                                    FontFamily="Times New Roman" Margin="30,10,30,10"/>
+                            </Grid>
+
+                        </Grid>
+
+                    </Grid>
+
+                </Grid>
+
+                <Grid Grid.Row="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="5*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="2*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <TextBlock Text="Пароль для доступа к проекту" 
+                                       FontSize="24" 
+                                       FontFamily="Times New Roman" 
+                                       Margin="5,0,0,1"/>
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+                            <TextBox Text="Пароль (не обязателен)"
+                                         FontSize="24"
+                                         FontFamily="Times New Roman" 
+                                         HorizontalAlignment="Stretch" 
+                                         VerticalAlignment="Stretch" Margin="5,1,15,0" 
+                                         FontWeight="Normal" 
+                                         VerticalContentAlignment="Center" 
+                                         Padding="2,0,0,0"
+                                         BorderThickness="1"
+                                         BorderBrush="Black" 
+                                         SelectionBrush="Black" 
+                                         Background="White"
+                                    />
+                        </Grid>
+
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="3*"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0">
+                                <TextBlock Text="Модификатор доступа:" 
+                                       FontSize="24" 
+                                       FontFamily="Times New Roman" 
+                                       Margin="5,0,0,1"/>
+                            </Grid>
+
+                            <Grid Grid.Row="1">
+                                <StackPanel Orientation="Vertical">
+
+                                    <RadioButton
+                                    Content="Свободный"
+                                    FontSize="24"
+                                    FontFamily="Times New Roman"
+                                    Margin="5,0,0,1" 
+                                    IsChecked="True" 
+                                    Height="35" 
+                                    Padding="4,-7,0,0"
+                                    />
+
+                                    <RadioButton
+                                    Content="Приватный"
+                                    FontSize="24"
+                                    FontFamily="Times New Roman"
+                                    Margin="5,0,0,1" 
+                                    IsChecked="False"
+                                    Height="35"
+                                    Padding="4,-7,0,0"
+                                    />
+
+                                    <RadioButton
+                                    Content="Закрытый"
+                                    FontSize="24"
+                                    FontFamily="Times New Roman"
+                                    Margin="5,0,0,1" 
+                                    IsChecked="False"
+                                    Height="35"
+                                    Padding="4,-7,0,0"
+                                    />
+
+                                </StackPanel>
+                            </Grid>
+
+                        </Grid>
+
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <Button
+                                    Content="Сохранить как"
+                                    FontSize="24"
+                                    FontFamily="Times New Roman" Margin="15,45,45,45"
+                                    />
+                            </Grid>
+
+                            <Grid Grid.Column="1">
+                                <Button
+                                    Content="Сохранить на сервер"
+                                    FontSize="24"
+                                    FontFamily="Times New Roman" Margin="15,45,45,45"
+                                    />
+                            </Grid>
+
+                        </Grid>
+
+                    </Grid>
+
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+</Window>

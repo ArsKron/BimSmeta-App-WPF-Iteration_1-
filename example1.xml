@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dat-set xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<record>
+		<number>1</number>
+		<id>01-01-001-01</id>
+		<description>Разработка грунта в отвал экскаваторами "драглайн" одноковшовыми электрическими шагающими при работе на гидроэнергетическом строительстве с ковшом вместимостью: 15 м3, группа грунтов 1</description>
+		<volume>1000</volume>
+		<cost>2968.03</cost>
+	</record>
+	<record>
+		<number>2</number>
+		<id>01-01-001-02</id>
+		<description>Разработка грунта в отвал экскаваторами "драглайн" одноковшовыми электрическими шагающими при работе на гидроэнергетическом строительстве с ковшом вместимостью: 15 м3, группа грунтов 2</description>
+		<volume>1000</volume>
+		<cost>3580.12</cost>
+	</record>
+	<record>
+		<number>3</number>
+		<id>01-01-001-03</id>
+		<description>Заливка стен бетоном класса М</description>
+		<volume>1000</volume>
+		<cost>169579.89</cost>
+	</record>
+	<record>
+		<number>4</number>
+		<id>01-01-001-04</id>
+		<description>Заливка стен бетоном класса K</description>
+		<volume>1000</volume>
+		<cost>231451.21</cost>
+	</record>
+	<record>
+		<number>5</number>
+		<id>01-01-001-05</id>
+		<description>Снятие опалубки</description>
+		<volume>1000</volume>
+		<cost>2415.73</cost>
+	</record>
+	<record>
+		<number>6</number>
+		<id>01-01-001-06</id>
+		<description>Укладка блоков и плит ленточных фундаментов при глубине котлована до 4 м, масса конструкций: до 0,5 т</description>
+		<volume>100</volume>
+		<cost>2955.17</cost>
+	</record>
+	<record>
+		<number>7</number>
+		<id>01-01-001-07</id>
+		<description>Укладка блоков и плит ленточных фундаментов при глубине котлована более 4 м, масса конструкций: до 1,5 т</description>
+		<volume>100</volume>
+		<cost>4025.26</cost>
+	</record>
+</dat-set>

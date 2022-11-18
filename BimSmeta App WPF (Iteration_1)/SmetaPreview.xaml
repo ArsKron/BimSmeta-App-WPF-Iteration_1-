@@ -1,0 +1,189 @@
+﻿<Window x:Class="BimSmeta_App_WPF__Iteration_1_.SmetaPreview"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BimSmeta_App_WPF__Iteration_1_"
+        mc:Ignorable="d"
+        Title="NewProject1 - BIM-Smeta AutoBuilder" 
+        Background="White" 
+        BorderBrush="Black" 
+        Height="450" 
+        Width="800" 
+        WindowStartupLocation="CenterScreen" 
+        WindowState="Maximized" 
+        AllowDrop="True" 
+        WindowStyle="SingleBorderWindow" 
+        BorderThickness="0,1,0,0" 
+        Icon="/kisspng-logo-computer-icons-clip-art-arrow-symbol-single-turn-svg-png-icon-free-download-4-1458-5b76.ico"
+        Closed="Window_Closed"
+        Loaded="Window_Loaded"
+        >
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width = "2*"/>
+            <ColumnDefinition Width= "7*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Border BorderBrush="Black" BorderThickness="1,0,1,0">
+                <StackPanel Orientation="Vertical">
+
+                    <Button x:Name="Button_Project" 
+                            Content="Проект" 
+                            BorderThickness="0,1,0,0" 
+                            FontSize="24" 
+                            FontFamily="Times New Roman" 
+                            Height="45"
+                            Background="White"
+                            Click="Button_Project_Click"
+                            >
+                    </Button>
+
+                    <Button x:Name="Button_LoadProject" 
+                            Content="Загрузить проект" 
+                            BorderThickness="0,1,0,0" 
+                            FontSize="24" 
+                            FontFamily="Times New Roman" 
+                            Height="45"
+                            Background="White"
+                            Click="Button_LoadProject_Click"
+                            >
+                    </Button>
+
+                    <Button x:Name="Button_Constructor" 
+                            Content="Конструктор сметы"
+                            BorderThickness="0,1,0,0" 
+                            FontSize="24" 
+                            FontFamily="Times New Roman" 
+                            Height="45"
+                            Click="Button_Constructor_Click"
+                            Background="White"
+                            >
+                    </Button>
+
+                    <Button x:Name="Button_Preview" 
+                            Content="Предпросмотр сметы" 
+                            BorderThickness="0,1,0,0" 
+                            FontSize="24" 
+                            FontFamily="Times New Roman" 
+                            Height="45">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/1.png"/>
+                        </Button.Background>
+                    </Button>
+
+                    <Button x:Name="Button_Reference" 
+                            Background="White" 
+                            Content="Справка" 
+                            BorderThickness="0,1,0,1" 
+                            FontSize="24" 
+                            FontFamily="Times New Roman" 
+                            Height="45"
+                            Click="Button_Reference_Click"
+                            />
+
+                </StackPanel>
+            </Border>
+
+        </Grid>
+
+        <Grid Grid.Column="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1">
+
+                    <TextBlock
+                        Text="NewProject1"
+                        FontFamily="Times New Roman"
+                        FontSize="24"
+                        Margin="0, 30, 0, 0"
+                        />
+                </Grid>
+
+            </Grid>
+
+            <Grid Grid.Row="1">
+
+                <DataGrid Name="SmetaPreviewGrid" FontFamily="Times New Roman" FontSize="28"
+                              BorderBrush="Black" BorderThickness="1" Margin="20,10,20,10" AutoGenerateColumns="False"
+                          ColumnWidth="*" Background="White"
+                          >
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Код элемента" Binding="{Binding Path=ElementCode}"/>
+                        <DataGridTextColumn Header="ID элемента" Binding="{Binding Path=ElementID}"/>
+                        <DataGridTextColumn Header="Название элемента" Binding="{Binding Path=ElementName}"/>
+                        <DataGridTextColumn Header="Тип элемента" Binding="{Binding Path=ElementType}"/>
+                        <DataGridTextColumn Header="Секция" Binding="{Binding Path=Section}"/>
+                        <DataGridTextColumn Header="Этаж" Binding="{Binding Path=Floor}"/>
+                        <DataGridTextColumn Header="Стоимость" Binding="{Binding Path=Cost}"/>
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+            </Grid>
+
+            <Grid Grid.Row="2">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    
+                    <TextBlock
+                        Name="CostTextBlock"
+                        Text="Итоговая стоимость: 0"
+                        FontSize="24"
+                        FontFamily="Times New Roman" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center"
+                        />
+                    
+                </Grid>
+
+                <Grid Grid.Column="1">
+
+                    <Button
+                        Name="ViewItemTrackingButton"
+                        FontFamily="Times New Roman"
+                        FontSize="24"
+                        Margin="140,35,140,45"
+                        Background="White"
+                        Click="ViewItemTrackingButton_Click"
+                        >
+                        <Button.Content>
+                            <TextBlock 
+                                HorizontalAlignment="Stretch"
+                                TextWrapping="Wrap"
+                                TextAlignment="Center"
+                                >
+                                Просмотр учёта <LineBreak/> элементов
+                            </TextBlock>
+                        </Button.Content>
+
+                    </Button>
+
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+</Window>
